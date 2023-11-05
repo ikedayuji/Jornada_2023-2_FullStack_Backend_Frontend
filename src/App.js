@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import NavMenu from './navMenu';
-import Graficos from './Graficos';
-import BarChart from './Graficos2';
-import Graficos3 from './Graficos3';
 import backgroundImage from './imagens/planodefundo.png';
+import Dashboard from './GraficoApi'; // Importe o componente Dashboard
 
 function App() {
   const [exibirCartoes, setExibirCartoes] = useState(false);
@@ -21,17 +19,8 @@ function App() {
     setExibirMenu(true);
   };
 
-  const graficosData = [
-    { titulo: 'Gráfico 1', conteudo: 'Dados do gráfico 1' },
-    { titulo: 'Gráfico 2', conteudo: 'Dados do gráfico 2' },
-    { titulo: 'Gráfico 3', conteudo: 'Dados do gráfico 3' },
-    { titulo: 'Gráfico 4', conteudo: 'Dados do gráfico 4' },
-    { titulo: 'Gráfico 5', conteudo: 'Dados do gráfico 5' },
-    { titulo: 'Gráfico 6', conteudo: 'Dados do gráfico 6' }
-  ];
-
   return (
-    <Container fluid>
+    <Container fluid style={{ height: '100%' }}>
       <Row className="nebulous white cabecalho bordacabecalho">
         <Col xs={1} className="d-flex align-items-center">
           <Button variant="primary" onClick={mostrarApenasHome} style={{ width: '100px' }}>
@@ -58,7 +47,7 @@ function App() {
             Alarmes
           </Button>
         </Col>
-      </Row>
+      </Row>  
       <Row className="body">
         <Col xs={3} className={`nebulous white bordamenuacesso mx-auto style ${exibirMenu ? "menu-ativo" : "menu-inativo"}`}>
           <h3>Menu Principal</h3>
@@ -79,29 +68,17 @@ function App() {
 
           {exibirCartoes ? (
             <Row className="grafico-container">
-              {graficosData.map((grafico, index) => (
-                <Col xs={4} key={index} style={{ marginBottom: '15px' }}>
-                  <Card className="mb-3" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                    <Card.Body style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                      <Card.Title>{grafico.titulo}</Card.Title>
-                      <Card.Text>{grafico.conteudo}</Card.Text>
-                      <div style={{ flex: 1, overflow: 'hidden' }}>
-                        {grafico.titulo === 'Gráfico 1' ? (
-                          <Graficos />
-                        ) : grafico.titulo === 'Gráfico 2' ? (
-                          <BarChart />
-                        ) : grafico.titulo === 'Gráfico 3' ? (
-                          <div style={{ flex: 1, overflow: 'auto' }}>
-                            <Graficos3 />
-                          </div>
-                        ) : (
-                          <Graficos />
-                        )}
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
+              <Col xs={9} style={{ marginBottom: '15px', marginLeft: '12%' }}>
+                <Card className="mb-3 ml-auto" style={{ transform: 'scaleX(1.2)', height: '105%', display: 'flex', flexDirection: 'column' }}>
+                  <Card.Body style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    <Card.Title>Gráfico de Linhas</Card.Title>
+                    <Card.Text>Dados do Gráfico de Linhas</Card.Text>
+                    <div style={{ flex: 1, overflow: 'hidden' }}>
+                      <Dashboard />
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
             </Row>
           ) : null}
         </Col>
