@@ -10,7 +10,7 @@ function NavMenu() {
     <>
       <Row>
         <Col xs="3">
-          <Button style={{width: 160, display:"block", borderBlockColor: 'Black' }} variant="primary" size="lg" className='m-2'>
+          <Button style={{width: 290, display:"block", borderBlockColor: 'Black' }} variant="primary" size="lg" className='m-2'>
           Cadastro
           </Button>
         </Col>
@@ -18,7 +18,7 @@ function NavMenu() {
 
       <Row>
         <Col xs="3">
-          <Button style={{width: 160, display:"block", borderBlockColor: 'Black' }} variant="primary" size="lg" className='m-2'>
+          <Button style={{width: 290, display:"block", borderBlockColor: 'Black' }} variant="primary" size="lg" className='m-2'>
           A Produzir
           </Button>
         </Col>
@@ -26,7 +26,7 @@ function NavMenu() {
 
       <Row>
         <Col xs="3">
-          <Button style={{width: 160, display:"block", borderBlockColor: 'Black' }} variant="primary" size="lg" className='m-2'>
+          <Button style={{width: 290, display:"block", borderBlockColor: 'Black' }} variant="primary" size="lg" className='m-2'>
           Produzido
           </Button>
         </Col>
@@ -34,7 +34,7 @@ function NavMenu() {
 
       <Row>
         <Col xs="3">
-          <Button style={{width: 160, display:"block", borderBlockColor: 'Black' }} variant="primary" size="lg" className='m-2'>
+          <Button style={{width: 290, display:"block", borderBlockColor: 'Black' }} variant="primary" size="lg" className='m-2'>
           Batelada
           </Button>
         </Col>
@@ -42,7 +42,7 @@ function NavMenu() {
 
       <Row>
         <Col xs="3">
-          <Button style={{width: 160, display:"block", borderBlockColor: 'Black' }} variant="primary" size="lg" className='m-2'>
+          <Button style={{width: 290, display:"block", borderBlockColor: 'Black' }} variant="primary" size="lg" className='m-2'>
           Silos
           </Button>
         </Col>
@@ -50,7 +50,7 @@ function NavMenu() {
 
       <Row>
         <Col xs="3">
-          <Button style={{width: 160, display:"block", borderBlockColor: 'Black' }} variant="primary" size="lg" className='m-2'>
+          <Button style={{width: 290, display:"block", borderBlockColor: 'Black' }} variant="primary" size="lg" className='m-2'>
           Sair
           </Button>
         </Col>
