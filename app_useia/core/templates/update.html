@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Document</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+
+        {{ pessoa.id}} - {{ pessoa.nome}}
+
+        <form action="{% url 'update' pessoa.id %}" method="POST">
+            {% csrf_token %}
+            <input type = "text" name= "nome" value="{{pessoa.nome}}">
+            <button type= "submit">Atualizar</button>
+        </form>
+
+        <script src="" async defer></script>
+    </body>
+</html>
