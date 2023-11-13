@@ -105,7 +105,7 @@ function App() {
       <Row className="rodape">
         <Col className="bg-warning bordatempo">{previsaoTempo}</Col>
         <Col xs={5} className="bg-warning bordaDireito">
-          Direitos Reservados: UseIA Engenharia de Software
+          Direitos Reservados: Eng2025 Engenharia de Software 
         </Col>
         <Col className="bg-warning bordadatahora">
           Data/Hora: {dataHora.toLocaleString()}

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import * as echarts from 'echarts';
 import axios from 'axios';
+import ReactECharts from 'echarts-for-react';
 
 const chartStyle = {
   width: '480px',
@@ -15,14 +15,14 @@ const cardStyle = {
 };
 
 function GraficoApi() {
-  const chartRef = useRef(React.createRef());
   const [chartData, setChartData] = useState({ labels: [], values: [] });
   const [loading, setLoading] = useState(true);
+  const [chart, setChart] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/chart/data/');
+        const response = await axios.get('http://localhost:8000/grafico-sensor-s04/');
         const data = response.data;
 
         // Ajuste para pegar apenas os dados necessários
@@ -43,66 +43,62 @@ function GraficoApi() {
   }, []);
 
   useEffect(() => {
-    if (!loading) {
-      const myChart = echarts.init(chartRef.current);
-
-      const option = {
-        title: {
-          text: 'Sensor S04',
-        },
-        tooltip: {
-          trigger: 'axis',
-        },
-        legend: {
-          data: ['Sensor S04'],
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true,
-        },
-        toolbox: {
-          feature: {
-            saveAsImage: {},
-          },
-        },
-        xAxis: {
-          type: 'category',
-          boundaryGap: false,
-          data: chartData.labels,
-        },
-        yAxis: {
-          type: 'value',
-        },
-        series: [{
-          name: 'Sensor S04',
-          type: 'line',
-          data: chartData.values,
-          backgroundColor: 'rgba(0, 123, 255, 0.5)',
-          borderColor: 'rgba(0, 123, 255, 1)',
-          borderWidth: 1,
-        }],
-      };
-
-      myChart.setOption(option);
-
-      return () => {
-        myChart.dispose();
-      };
+    if (!loading && chart) {
+      // Adapte a lógica conforme necessário para ajustar o tamanho do gráfico
+      chart.resize();
     }
-  }, [chartData, loading]);
+  }, [loading, chart]);
 
   return (
     <div>
       {loading ? (
         <p>Carregando...</p>
       ) : (
-        <div ref={chartRef} style={cardStyle} />
+        <ReactECharts
+          option={{
+            title: {
+              text: 'Sensor S04',
+            },
+            tooltip: {
+              trigger: 'axis',
+            },
+            legend: {
+              data: ['Sensor S04'],
+            },
+            grid: {
+              left: '3%',
+              right: '4%',
+              bottom: '3%',
+              containLabel: true,
+            },
+            toolbox: {
+              feature: {
+                saveAsImage: {},
+              },
+            },
+            xAxis: {
+              type: 'category',
+              boundaryGap: false,
+              data: chartData.labels,
+            },
+            yAxis: {
+              type: 'value',
+            },
+            series: [{
+              name: 'Sensor S04',
+              type: 'line',
+              data: chartData.values,
+              backgroundColor: 'rgba(0, 123, 255, 0.5)',
+              borderColor: 'rgba(0, 123, 255, 1)',
+              borderWidth: 1,
+            }],
+          }}
+          style={cardStyle}
+          onChartReady={(chartInstance) => setChart(chartInstance)}
+        />
       )}
     </div>
   );
 }
 
 export default GraficoApi;
-  

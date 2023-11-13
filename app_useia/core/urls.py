@@ -23,8 +23,6 @@ urlpatterns = [
     path('cadastrar-formula/', views.cadastrar_formula, name='cadastrar_formula'),
     path('listar-formulas/', views.listar_formulas, name='listar_formulas'),
     path('graficos/', views.get_docs_from_mongo, name='get_mongo'), 
-    path('sensors04/', views.grafico_sensor_s04, name='grafico_sensor_s04'),
-    path('grafico-sensor-s01/', views.grafico_sensor_s01, name='grafico_sensor_s01'),
     path('grafico-sensor-s04/', views.grafico_sensor_s04, name='grafico_sensor_s04'),
 ]
 

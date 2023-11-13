@@ -25,11 +25,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from rest_framework import generics
 from .models import Sensor
 
-
-
-
-
-
 def home(request):
     pessoas = Pessoa.objects.all()
     return render(request, "index.html", {"pessoas": pessoas})
