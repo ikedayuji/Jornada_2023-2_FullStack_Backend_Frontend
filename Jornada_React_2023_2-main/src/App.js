@@ -37,6 +37,7 @@ function App() {
       'scattered clouds': 'Nublado',
       'overcast clouds': 'Nublado',
       'few clouds': 'Pred. Nublado',
+      'broken clouds':'Pred. Nublado',
       'light rain': 'Chuva Leve',
       'light intensity shower rain': 'Raios intensos com chuva',
       'Rain': 'Chuva',

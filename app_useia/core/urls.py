@@ -22,7 +22,7 @@ urlpatterns = [
     path('previsao_do_tempo/', views.previsao_do_tempo, name='previsao_do_tempo'),
     path('cadastrar-formula/', views.cadastrar_formula, name='cadastrar_formula'),
     path('listar-formulas/', views.listar_formulas, name='listar_formulas'),
-    path('graficos/', views.get_docs_from_mongo, name='get_mongo'), 
+    path('get_mongo/', views.get_docs_from_mongo, name='get_mongo'), 
     path('grafico-sensor-s04/', views.grafico_sensor_s04, name='grafico_sensor_s04'),
 ]
 
