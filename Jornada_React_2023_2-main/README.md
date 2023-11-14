@@ -1,3 +1,6 @@
+
+![Captura de tela 2023-11-14 194157](https://github.com/ikedayuji/Jornada_2023-2_Integracao_Frontend_Backend/assets/93358246/270e9997-c9a8-457a-87a2-fcbe4af813c2)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
