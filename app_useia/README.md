@@ -1,4 +1,4 @@
-Inicialização do Django no CMD:
+Inicialização do Django no CMD
 cd: C:\Desktop\Jornada\Jornada_2023-2_Integracao_Frontend_Backend\app_useia
 
 Instalação de pip a ser feito no cmd do Django
