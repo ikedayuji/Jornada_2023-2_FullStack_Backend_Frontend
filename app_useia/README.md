@@ -1,3 +1,5 @@
+Conectar o cmd do Django/React
+
 Inicialização do Django no CMD vscode:
 - cd: C:\Users\aluno\Desktop\Jornada\Jornada_2023-2_Integracao_Frontend_Backend\app_useia
 
