@@ -1,3 +1,6 @@
+Inicialização do React no CMD vscode:
+- cd C:\Users\aluno\Desktop\Jornada\Jornada_2023-2_Integracao_Frontend_Backend\Jornada_React_2023_2-main\src
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -13,6 +16,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+![Captura de tela 2023-11-14 194157](https://github.com/ikedayuji/Jornada_2023-2_Integracao_Frontend_Backend/assets/93358246/270e9997-c9a8-457a-87a2-fcbe4af813c2)
 
 ### `npm test`
 
@@ -68,3 +73,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
