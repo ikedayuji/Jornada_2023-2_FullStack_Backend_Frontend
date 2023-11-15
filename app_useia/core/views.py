@@ -167,59 +167,6 @@ def get_docs_from_mongo(request):
     return JsonResponse(data, safe=False)
 
 
-
-
-#def dados_do_sensor_de_nivel(request):
-#   try:
-#        # Exemplo: Recuperar as últimas 10 leituras do sensor de nível
-#        leituras = LeituraSensorNivel.objects.order_by('-tempo')[:10]
-
-#        dados = {
-#           'x': [leitura.tempo.strftime('%Y-%m-%d %H:%M:%S') for leitura in leituras],
-#            'y': [leitura.valor for leitura in leituras],
-#        }
-
-#       return JsonResponse(dados)
-#    except Exception as e:
-#        # Adicione tratamento de exceção adequado para lidar com possíveis erros
-#        print(f"Erro ao obter dados do sensor de nível: {e}")
-#        return JsonResponse({'error': 'Erro ao obter dados do sensor de nível'}, status=500)
-
-#@api_view(['GET'])
-#@permission_classes([AllowAny])
-#def dados_do_sensor(request, sensor_id):
-#    try:
-#        # Aqui você deve implementar a lógica para obter dados reais do sensor com base no sensor_id
-#        # Certifique-se de importar seus próprios modelos
-#        sensor = SensorData.objects.get(sensor_id=sensor_id)
-#
-#        # Aqui você deve ter os dados específicos do sensor
-#        dados = {
-#            'x': sensor.dados_x,
-#            'y': sensor.dados_y,
-#        }
-#
-#        return JsonResponse(dados)
-#    except SensorData.DoesNotExist:
-#        return JsonResponse({'error': 'Sensor não encontrado'}, status=404)
-#    except Exception as e:
-#        return JsonResponse({'error': str(e)}, status=500)
-
-#def dados_do_sensor(request, sensor_id):
-#    try:
-#        # Recupera os dados do sensor do banco de dados
-#        sensor_data = SensorData.objects.filter(sensor_id=sensor_id)
-#        
-#        # Formata os dados para serem enviados como resposta JSON
-#        data = {
-#            'x': [entry.timestamp for entry in sensor_data],
-#            'y': [entry.value for entry in sensor_data],
-#        }
-#
-#        return JsonResponse(data)
-#    except Exception as e:
-#        return JsonResponse({'error': str(e)})
-
 def get_sensor_data(request):
     data = []
     registros = Registro.objects.all()
@@ -245,8 +192,10 @@ def grafico_sensor_s01(request):
 
 def grafico_sensor_s04(request):
     registros = Registro.objects.filter(sensor_id='S04').order_by('timestamp')
-    dados = {
-        'labels': [registro.timestamp.strftime("%Y-%m-%d %H:%M:%S") for registro in registros],
-        'values': [registro.value for registro in registros]
-    }
-    return render(request, 'core/grafico_sensor_s04.html', {'dados': json.dumps(dados)})
+
+    # Estruturando os dados corretamente
+    labels = [registro.timestamp.strftime("%Y-%m-%d %H:%M:%S") for registro in registros]
+    values = [registro.value for registro in registros]
+
+    # Retorna os dados corretamente estruturados
+    return JsonResponse({'labels': labels, 'values': values})
